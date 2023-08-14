@@ -76,32 +76,32 @@ final class RootCoordinator {
     
     private func showMixerTableViewController() {
         let mixerTableVC = MixerTableViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(mixerTableVC, animated: false)
+        navigationController.pushViewController(mixerTableVC, animated: true)
     }
     
     private func showCompactControllerViewController() {
         let compactControllerVC = CompactControllerViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(compactControllerVC, animated: false)
+        navigationController.pushViewController(compactControllerVC, animated: true)
     }
     
     private func showInertialSquareViewController() {
         let inertialSquareVC = InertialSquareViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(inertialSquareVC, animated: false)
+        navigationController.pushViewController(inertialSquareVC, animated: true)
     }
     
     private func showStretchingPictureViewController() {
         let stretchingPictureVC = StretchingPictureViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(stretchingPictureVC, animated: false)
+        navigationController.pushViewController(stretchingPictureVC, animated: true)
     }
     
     private func showNativeAvatarViewController() {
         let nativeAvatarVC = NativeAvatarViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(nativeAvatarVC, animated: false)
+        navigationController.pushViewController(nativeAvatarVC, animated: true)
     }
     
     private func showCaringCollectionViewController() {
         let caringCollectionVC = CaringCollectionViewController(nibName: nil, bundle: nil)
-        navigationController.pushViewController(caringCollectionVC, animated: false)
+        navigationController.pushViewController(caringCollectionVC, animated: true)
     }
     
 }
