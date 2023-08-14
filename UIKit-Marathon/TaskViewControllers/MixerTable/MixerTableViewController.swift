@@ -44,7 +44,7 @@ class MixerTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         title = "Миксер-Таблица"
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.trailingItemGroups = [UIBarButtonItemGroup(barButtonItems: [shuffleButton],

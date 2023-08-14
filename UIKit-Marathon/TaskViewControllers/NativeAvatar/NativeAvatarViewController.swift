@@ -15,7 +15,7 @@ class NativeAvatarViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Нативный Аватар"
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         navigationItem.largeTitleDisplayMode = .always
         
         let scrollView = UIScrollView(frame: .init(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -34,7 +34,7 @@ class NativeAvatarViewController: UIViewController {
                                                  width: (navigationController?.navigationBar.subviews[1].frame.width)!,
                                                  height: 2 * (navigationController?.navigationBar.subviews[1].frame.height)!))
         
-        additionalView.backgroundColor = .white
+        additionalView.backgroundColor = .backgroundFill
         view.addSubview(additionalView)
     }
 }

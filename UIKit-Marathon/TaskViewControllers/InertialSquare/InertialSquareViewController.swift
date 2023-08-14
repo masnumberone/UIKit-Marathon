@@ -22,7 +22,7 @@ class InertialSquareViewController: UIViewController {
         squareView.layer.cornerRadius = 8
         
         view.addSubview(squareView)
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         title = "Инерционный Квадрат"
         navigationItem.largeTitleDisplayMode = .never
         

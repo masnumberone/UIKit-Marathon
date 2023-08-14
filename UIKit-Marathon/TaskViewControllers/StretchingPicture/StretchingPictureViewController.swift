@@ -18,7 +18,7 @@ class StretchingPictureViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         title = "Растягивающаяся Картинка"
         navigationItem.largeTitleDisplayMode = .never
         

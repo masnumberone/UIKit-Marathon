@@ -12,7 +12,7 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .backgroundFill
         return collectionView
     }()
     

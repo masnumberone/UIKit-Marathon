@@ -17,7 +17,7 @@ class RelatedAnimationViewController: UIViewController {
         
         title = "Связанная Анимация"
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         
         view.layoutMargins = .init(top: 100, left: 20, bottom: 10, right: 20)
         

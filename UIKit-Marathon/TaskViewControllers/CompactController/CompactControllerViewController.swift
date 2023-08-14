@@ -15,7 +15,7 @@ class CompactControllerViewController: UIViewController, UIPopoverPresentationCo
         
         title = "Компактный Контроллер"
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         
         view.addSubview(button)
         button.setTitle("Present", for: .normal)

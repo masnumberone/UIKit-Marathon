@@ -49,7 +49,7 @@ class RootViewController: UIViewController {
         collectionView.alwaysBounceVertical = false
         collectionView.backgroundColor = .clear
         
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         
         collectionView.register(TaskCollectionCell.self, forCellWithReuseIdentifier: TaskCollectionCell.identifier)
     }

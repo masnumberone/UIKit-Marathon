@@ -17,7 +17,7 @@ class GradientAndShadowViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(squareView)
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundFill
         title = "Градиент и Тень"
         
         squareView.translatesAutoresizingMaskIntoConstraints = false
