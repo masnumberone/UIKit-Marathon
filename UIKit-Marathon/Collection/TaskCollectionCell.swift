@@ -26,7 +26,7 @@ class TaskCollectionCell: UICollectionViewCell {
     
     private let bottomBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .init(hex: 0x1C2039)
+        view.backgroundColor = .blueDark
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
