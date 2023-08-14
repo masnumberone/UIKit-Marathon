@@ -18,6 +18,7 @@ final class RootCoordinator {
         
         let window = UIWindow(windowScene: scene)
         window.rootViewController = navigationController
+        window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
         
         self.window = window
@@ -37,7 +38,9 @@ final class RootCoordinator {
                                              TaskItem(title: "инерционный квадрат", imageName: "numberSix", backgroundColor: 0x6F666B),
                                              TaskItem(title: "растягивающаяся картинка", imageName: "numberSeven", backgroundColor: 0xEFA2C2),
                                              TaskItem(title: "нативный аватар", imageName: "numberEight", backgroundColor: 0xBEB9B3),
-                                             TaskItem(title: "заботливая коллекция", imageName: "numberNine", backgroundColor: 0xB69D81)])
+                                             TaskItem(title: "заботливая коллекция", imageName: "numberNine", backgroundColor: 0xB69D81)],
+                                          title: "MasN1 project",
+                                          description: "задания с марафона 5’2023")
         let rootViewController = RootViewController(viewModel: rootViewModel)
         rootViewModel.onItemSelected = { [weak self] itemNumber in
             switch itemNumber {

@@ -10,8 +10,12 @@ import Foundation
 class RootViewModel {
     var items: [TaskItem]
     var onItemSelected: ((Int) -> Void)?
+    var title: String
+    var description: String
     
-    init(items: [TaskItem]) {
+    init(items: [TaskItem], title: String, description: String) {
         self.items = items
+        self.title = title
+        self.description = description
     }
 }

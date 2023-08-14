@@ -18,7 +18,7 @@ class RootViewController: UIViewController {
                                                   heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8),
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(326),
                                                    heightDimension: .absolute(480))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                          subitems: [item])
@@ -30,8 +30,15 @@ class RootViewController: UIViewController {
         }
     }
     
+    private let titleView: HeaderRootView = {
+        let view = HeaderRootView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     init(viewModel: RootViewModel) {
         self.viewModel = viewModel
+        titleView.configure(with: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,8 +48,8 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "MasN1 project"
 
+        view.addSubview(titleView)
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -51,6 +58,7 @@ class RootViewController: UIViewController {
         
         view.backgroundColor = .backgroundFill
         
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(TaskCollectionCell.self, forCellWithReuseIdentifier: TaskCollectionCell.identifier)
     }
     
@@ -58,12 +66,15 @@ class RootViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         collectionView.clipsToBounds = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 32),
+            
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 480)
+            collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 34),
+            collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
     }
 }
