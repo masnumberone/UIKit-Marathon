@@ -41,6 +41,12 @@ class TaskCollectionCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 24
         contentView.clipsToBounds = true
         
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 32
+        layer.shadowOpacity = 0.36
+        layer.shadowOffset = .zero
+        clipsToBounds = false
+        
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -94 / 2),
