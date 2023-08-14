@@ -16,4 +16,5 @@ extension UIColor {
     }
     
     static let backgroundFill = UIColor(hex: 0xF4F4F5)
+    static let blueDark = UIColor(hex: 0x1C2039)
 }

@@ -8,9 +8,9 @@
 import UIKit
 
 class InertialSquareViewController: UIViewController {
-    var animator: UIDynamicAnimator!
-    var behavior: UISnapBehavior!
-    var squareView: UIView!
+    private var animator: UIDynamicAnimator!
+    private var behavior: UISnapBehavior!
+    private var squareView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

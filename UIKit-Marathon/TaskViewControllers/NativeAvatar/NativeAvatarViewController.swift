@@ -7,9 +7,8 @@
 
 import UIKit
 
-class NativeAvatarViewController: UIViewController {
-    
-    var imageView: UIImageView!
+class NativeAvatarViewController: UIViewController, UINavigationControllerDelegate {
+    private let imageView = UIImageView(image: UIImage(systemName: "person.crop.circle.fill"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,25 +17,45 @@ class NativeAvatarViewController: UIViewController {
         view.backgroundColor = .backgroundFill
         navigationItem.largeTitleDisplayMode = .always
         
-        let scrollView = UIScrollView(frame: .init(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = .init(width: scrollView.frame.width, height: 1500)
+        let scrollView = UIScrollView(frame: .init(x: 0,
+                                                   y: 0,
+                                                   width: view.frame.width,
+                                                   height: view.frame.height))
+        scrollView.contentSize = .init(width: scrollView.frame.width,
+                                       height: 1500)
         view.addSubview(scrollView)
+        navigationController?.delegate = self
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
-        imageView = UIImageView(image: UIImage(systemName: "person.crop.circle.fill"))
-        imageView.frame = .init(x: (navigationController?.navigationBar.subviews[1].frame.width)! - 36 - 16,
-                                y: -(navigationController?.navigationBar.subviews[1].frame.height)!,
-                                width: 36,
-                                height: 36)
-        scrollView.addSubview(imageView)
+        guard viewController == self else {
+            imageView.removeFromSuperview()
+            return
+        }
+        
+        navigationController.navigationBar.subviews.forEach { subview in
+            let stringFromClass = subview.description
+            guard stringFromClass.contains("UINavigationBarLargeTitleView") else { return }
 
-        let additionalView = UIView(frame: .init(x: 0,
-                                                 y: 0,
-                                                 width: (navigationController?.navigationBar.subviews[1].frame.width)!,
-                                                 height: 2 * (navigationController?.navigationBar.subviews[1].frame.height)!))
-        
-        additionalView.backgroundColor = .backgroundFill
-        view.addSubview(additionalView)
+            if imageView.superview != subview {
+                imageView.removeFromSuperview()
+                subview.addSubview(imageView)
+
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                imageView.removeConstraints(imageView.constraints)
+
+                NSLayoutConstraint.activate([
+                    imageView.trailingAnchor.constraint(equalTo: subview.trailingAnchor, constant: -16),
+                    imageView.bottomAnchor.constraint(equalTo: subview.bottomAnchor, constant: -10),
+                    imageView.widthAnchor.constraint(equalToConstant: 36),
+                    imageView.heightAnchor.constraint(equalToConstant: 36)
+                ])
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.delegate = nil
     }
 }
-
-

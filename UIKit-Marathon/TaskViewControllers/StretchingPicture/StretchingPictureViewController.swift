@@ -9,10 +9,10 @@ import UIKit
 
 class StretchingPictureViewController: UIViewController, UIScrollViewDelegate {
     
-    var imageView: UIImageView!
+    private var imageView: UIImageView!
     
-    var constraintScale: [NSLayoutConstraint]!
-    var constraintOrigin: [NSLayoutConstraint]!
+    private var constraintScale: [NSLayoutConstraint]!
+    private var constraintOrigin: [NSLayoutConstraint]!
     
     
     override func viewDidLoad() {

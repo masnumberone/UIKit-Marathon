@@ -8,7 +8,7 @@
 import UIKit
 
 class CaringCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-    let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -26,7 +26,7 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
         title = "Заботливая Коллекция"
         navigationItem.largeTitleDisplayMode = .never
         view.addSubview(collectionView)
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .backgroundFill
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,7 +58,7 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: 250, height: 400)
+        .init(width: 250, height: 500)
     }
     
     

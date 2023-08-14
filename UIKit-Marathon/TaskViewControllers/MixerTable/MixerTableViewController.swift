@@ -8,7 +8,7 @@
 import UIKit
 
 class MixerTableViewController: UIViewController {
-    struct Item: Hashable, Equatable {
+    private struct Item: Hashable, Equatable {
         let number: Int
         var checkmark: Bool
         
@@ -21,25 +21,25 @@ class MixerTableViewController: UIViewController {
         }
     }
     
-    lazy var dataSource = UITableViewDiffableDataSource<Int, Item>(tableView: tableView) { tableView, indexPath, index in
+    private lazy var dataSource = UITableViewDiffableDataSource<Int, Item>(tableView: tableView) { tableView, indexPath, index in
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "\(index.number)"
         cell.accessoryType = index.checkmark ? .checkmark : .none
         return cell
     }
     
-    lazy var tableView = UITableView(frame: .init(x: view.safeAreaInsets.left,
+    private lazy var tableView = UITableView(frame: .init(x: view.safeAreaInsets.left,
                                                   y: view.safeAreaInsets.top,
                                                   width: view.bounds.width - view.safeAreaInsets.right - self.view.safeAreaInsets.right,
                                                   height: view.bounds.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom),
                                      style: .insetGrouped)
     
-    lazy var shuffleButton = UIBarButtonItem(title: "Shuffle",
+    private lazy var shuffleButton = UIBarButtonItem(title: "Shuffle",
                                              style: .plain,
                                              target: self,
                                              action: #selector(shuffleTableSnapshot))
     
-    var snapshot = NSDiffableDataSourceSnapshot<Int,Item>()
+    private var snapshot = NSDiffableDataSourceSnapshot<Int,Item>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,7 @@ class MixerTableViewController: UIViewController {
 }
 
 extension MixerTableViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         

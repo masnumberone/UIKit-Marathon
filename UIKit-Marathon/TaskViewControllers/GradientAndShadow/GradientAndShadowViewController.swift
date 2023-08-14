@@ -8,10 +8,10 @@
 import UIKit
 
 class GradientAndShadowViewController: UIViewController {
-    var squareView = UIView()
-    var squareViewLayer = CAGradientLayer()
-    let squareSize = CGSize(width: 100, height: 100)
-    let gradientColors = [#colorLiteral(red: 0.984562099, green: 0.02928770892, blue: 0.2500837147, alpha: 1), #colorLiteral(red: 0.08912231773, green: 0.4647620916, blue: 0.6973915696, alpha: 1)]
+    private let squareView = UIView()
+    private let squareViewLayer = CAGradientLayer()
+    private let squareSize = CGSize(width: 100, height: 100)
+    private let gradientColors = [#colorLiteral(red: 0.984562099, green: 0.02928770892, blue: 0.2500837147, alpha: 1), #colorLiteral(red: 0.08912231773, green: 0.4647620916, blue: 0.6973915696, alpha: 1)]
     
     override func viewDidLoad() {
         super.viewDidLoad()

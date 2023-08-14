@@ -8,9 +8,9 @@
 import UIKit
 
 class RelatedAnimationViewController: UIViewController {
-    lazy var squereView = UIView(frame: .init(x: 0, y: 0, width: 130, height: 130))
-    lazy var slider = UISlider()
-    var animator: UIViewPropertyAnimator!
+    private lazy var squereView = UIView(frame: .init(x: 0, y: 0, width: 130, height: 130))
+    private lazy var slider = UISlider()
+    private var animator: UIViewPropertyAnimator!
     
     override func viewDidLoad() {
         super.viewDidLoad()

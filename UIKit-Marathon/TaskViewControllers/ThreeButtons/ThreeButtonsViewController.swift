@@ -8,23 +8,23 @@
 import UIKit
 
 class ThreeButtonsViewController: UIViewController {
-    var firstButton: CustomButton!
-    var secondButton: CustomButton!
-    var thirdButton: CustomButton!
-    var animator: UIViewPropertyAnimator!
+    private var firstButton: CustomButton!
+    private var secondButton: CustomButton!
+    private var thirdButton: CustomButton!
+    private var animator: UIViewPropertyAnimator!
     
-    var animationDuration = 0.1
-    var animationScale = 0.8
-    var labelDuration: UILabel!
-    var labelScale: UILabel!
+    private var animationDuration = 0.1
+    private var animationScale = 0.8
+    private var labelDuration: UILabel!
+    private var labelScale: UILabel!
     
-    var durationString: String {
+    private var durationString: String {
         get {
             String(format: "animationDuration = %.2f", animationDuration)
         }
     }
     
-    var scaleString: String {
+    private var scaleString: String {
         get {
             String(format: "animationScale = %.2f", animationScale)
         }

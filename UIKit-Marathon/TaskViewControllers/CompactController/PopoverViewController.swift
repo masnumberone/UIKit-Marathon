@@ -8,16 +8,15 @@
 import UIKit
 
 class PopoverViewController: UIViewController {
-    lazy var setHeight280 = UIAction(title: "280px", handler: { _ in
+    private lazy var setHeight280 = UIAction(title: "280px", handler: { _ in
         self.preferredContentSize = .init(width: 300, height: 280)
     })
     
-    lazy var setHeight150 = UIAction(title: "150px", handler: { _ in
+    private lazy var setHeight150 = UIAction(title: "150px", handler: { _ in
         self.preferredContentSize = .init(width: 300, height: 150)
     })
     
     override func viewDidLoad() {
-        
         let segmetedControl = UISegmentedControl(items: [setHeight280, setHeight150])
         view.addSubview(segmetedControl)
         
