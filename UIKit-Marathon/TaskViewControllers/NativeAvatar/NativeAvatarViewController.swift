@@ -9,14 +9,14 @@ import UIKit
 
 class NativeAvatarViewController: UIViewController, UINavigationControllerDelegate {
     private let imageView = UIImageView(image: UIImage(systemName: "person.crop.circle.fill"))
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Нативный Аватар"
         view.backgroundColor = .backgroundFill
         navigationItem.largeTitleDisplayMode = .always
-        
+
         let scrollView = UIScrollView(frame: .init(x: 0,
                                                    y: 0,
                                                    width: view.frame.width,
@@ -26,14 +26,13 @@ class NativeAvatarViewController: UIViewController, UINavigationControllerDelega
         view.addSubview(scrollView)
         navigationController?.delegate = self
     }
-    
+
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
         guard viewController == self else {
             imageView.removeFromSuperview()
             return
         }
-        
+
         navigationController.navigationBar.subviews.forEach { subview in
             let stringFromClass = subview.description
             guard stringFromClass.contains("UINavigationBarLargeTitleView") else { return }
@@ -54,7 +53,7 @@ class NativeAvatarViewController: UIViewController, UINavigationControllerDelega
             }
         }
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         navigationController?.delegate = nil
     }

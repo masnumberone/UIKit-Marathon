@@ -13,7 +13,7 @@ class RootViewController: UIViewController {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
     
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout { sectionNumber, environment in
+        return UICollectionViewCompositionalLayout { _, _ in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                   heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -21,7 +21,7 @@ class RootViewController: UIViewController {
             let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(326),
                                                    heightDimension: .absolute(480))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                         subitems: [item])
+                                                           subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .groupPagingCentered
@@ -48,7 +48,7 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.addSubview(titleView)
         view.addSubview(collectionView)
         collectionView.delegate = self
@@ -100,4 +100,3 @@ extension RootViewController: UICollectionViewDelegate {
         viewModel.onItemSelected?(indexPath.item)
     }
 }
-

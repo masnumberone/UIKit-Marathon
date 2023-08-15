@@ -29,17 +29,17 @@ class MixerTableViewController: UIViewController {
     }
     
     private lazy var tableView = UITableView(frame: .init(x: view.safeAreaInsets.left,
-                                                  y: view.safeAreaInsets.top,
-                                                  width: view.bounds.width - view.safeAreaInsets.right - self.view.safeAreaInsets.right,
-                                                  height: view.bounds.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom),
-                                     style: .insetGrouped)
+                                                          y: view.safeAreaInsets.top,
+                                                          width: view.bounds.width - view.safeAreaInsets.right - self.view.safeAreaInsets.right,
+                                                          height: view.bounds.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom),
+                                             style: .insetGrouped)
     
     private lazy var shuffleButton = UIBarButtonItem(title: "Shuffle",
-                                             style: .plain,
-                                             target: self,
-                                             action: #selector(shuffleTableSnapshot))
+                                                     style: .plain,
+                                                     target: self,
+                                                     action: #selector(shuffleTableSnapshot))
     
-    private var snapshot = NSDiffableDataSourceSnapshot<Int,Item>()
+    private var snapshot = NSDiffableDataSourceSnapshot<Int, Item>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,23 +63,21 @@ class MixerTableViewController: UIViewController {
     
     @objc
     func shuffleTableSnapshot() {
-        var items = snapshot.itemIdentifiers.shuffled()
+        let items = snapshot.itemIdentifiers.shuffled()
         snapshot.deleteItems(items)
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
 }
 
 extension MixerTableViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         var item = dataSource.itemIdentifier(for: indexPath)!
         item.checkmark.toggle()
         
-        if (item.checkmark) {
+        if item.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             snapshot.deleteItems([item])
             snapshot.insertItems([item], beforeItem: snapshot.itemIdentifiers.first!)

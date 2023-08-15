@@ -36,7 +36,7 @@ class TaskCollectionCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(bottomBackgroundView)
         contentView.addSubview(title)
-
+        
         contentView.layer.cornerCurve = .continuous
         contentView.layer.cornerRadius = 24
         contentView.clipsToBounds = true

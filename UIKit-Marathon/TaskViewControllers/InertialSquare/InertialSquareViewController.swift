@@ -8,14 +8,13 @@
 import UIKit
 
 class InertialSquareViewController: UIViewController {
-    private var animator: UIDynamicAnimator!
-    private var behavior: UISnapBehavior!
-    private var squareView: UIView!
+    private lazy var animator = UIDynamicAnimator(referenceView: view)
+    private lazy var behavior = UISnapBehavior(item: squareView, snapTo: squareView.center)
+    private lazy var squareView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        squareView = UIView()
+
         squareView.bounds = .init(x: 0, y: 0, width: 100, height: 100)
         squareView.center = view.center
         squareView.backgroundColor = .blue
@@ -25,25 +24,18 @@ class InertialSquareViewController: UIViewController {
         view.backgroundColor = .backgroundFill
         title = "Инерционный Квадрат"
         navigationItem.largeTitleDisplayMode = .never
-        
-        
-        animator = UIDynamicAnimator(referenceView: view)
-        
-        behavior = UISnapBehavior(item: squareView, snapTo: squareView.center)
+
         behavior.damping = 1.0
         animator.addBehavior(behavior)
-        
-        
+
         let collision = UICollisionBehavior(items: [squareView])
         collision.translatesReferenceBoundsIntoBoundary = true
         animator.addBehavior(collision)
-        
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
         view.addGestureRecognizer(gestureRecognizer)
-        
     }
     
     @objc
@@ -70,6 +62,5 @@ class InertialSquareViewController: UIViewController {
         default:
             break
         }
-        
     }
 }

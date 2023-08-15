@@ -42,8 +42,6 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
         collectionView.contentOffset.x = -collectionView.contentInset.left
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -56,11 +54,9 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: 250, height: 500)
     }
-    
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
@@ -70,7 +66,7 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
         let targetIndexPath = collectionView.indexPathForItem(at: targetOffset) ?? .init(item: 0, section: 0)
         var offset: CGPoint
         
-        if (targetOffset.x == scrollView.contentSize.width - view.frame.width) {
+        if targetOffset.x == scrollView.contentSize.width - view.frame.width {
             let lastIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0) - 1, section: 0)
             offset = layout.layoutAttributesForItem(at: lastIndexPath)!.frame.origin
         } else {

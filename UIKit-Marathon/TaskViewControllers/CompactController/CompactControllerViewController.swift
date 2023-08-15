@@ -37,11 +37,8 @@ class CompactControllerViewController: UIViewController, UIPopoverPresentationCo
         
         present(popoverVC, animated: true)
     }
-
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         .none
     }
-
 }
-
-

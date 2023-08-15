@@ -29,7 +29,6 @@ class PopoverViewController: UIViewController {
         segmetedControl.selectedSegmentIndex = 0
         setHeight280.performWithSender(nil, target: nil)
         
-        
         let dismissButton = UIButton(type: .close)
         view.addSubview(dismissButton)
         
@@ -46,5 +45,4 @@ class PopoverViewController: UIViewController {
     func dismissButtonDidTapped() {
         dismiss(animated: true)
     }
-    
 }

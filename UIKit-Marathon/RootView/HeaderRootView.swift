@@ -40,7 +40,7 @@ class HeaderRootView: UIView {
             
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            descriptionLabel.widthAnchor.constraint(lessThanOrEqualTo: largeTitleLabel.widthAnchor, multiplier: 1/2)
+            descriptionLabel.widthAnchor.constraint(lessThanOrEqualTo: largeTitleLabel.widthAnchor, multiplier: 1 / 2)
         ])
     }
     
