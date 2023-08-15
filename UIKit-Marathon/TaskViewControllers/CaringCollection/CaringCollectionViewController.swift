@@ -63,7 +63,7 @@ class CaringCollectionViewController: UIViewController, UICollectionViewDataSour
     
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
         // тут надо бы получать таргет ячейку, прибаввлять половину ширины и только потом определять конечную таргет ячейку
         let targetOffset = CGPoint(x: targetContentOffset.pointee.x + 125, y: 200)
